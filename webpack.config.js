@@ -1,13 +1,15 @@
 var path = require('path');
+var LessPluginCleanCSS = require('less-plugin-clean-css');
+var LessPluginAutoPrefix = require('less-plugin-autoprefix');
 
 var config = {
 	entry: [
 		'webpack/hot/dev-server',
 		'webpack-dev-server/client?http://localhost:8080',
-		path.resolve('d:/project/alien-ui-react', './app/entry.js')
+		path.resolve(__dirname, './app/entry.js')
 	],
 	output: {
-		path: path.resolve('d:/project/alien-ui-react', './build'),
+		path: path.resolve(__dirname, './build'),
 		filename: 'bundle.js'
 	},
 	module: {
@@ -17,7 +19,22 @@ var config = {
 		}, {
 			test: /\.jsx|js$/,
 			loaders: ['babel?presets[]=es2015,presets[]=react']
+		}, {
+			test: /\.less$/,
+			loader: 'style-loader!css-loader!less-loader'
+		}, {
+			test: /\.css$/,
+			loader: 'style-loader!css-loader'
 		}]
+	},
+	lessLoader: {
+		lessPlugins: [
+			new LessPluginCleanCSS({
+				advanced: true
+			}), new LessPluginAutoPrefix({
+				browsers: ["last 2 versions"]
+			})
+		]
 	}
 }
 

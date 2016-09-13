@@ -3,9 +3,78 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Document</title>
+	<link rel="stylesheet" type="text/css" href="./css/index.css">
+	<style type="text/css">
+        body{
+            background-color: #c1dcda;
+            padding: 30px 60px 30px 60px;
+        }
+
+        .dark-panel{
+            background: #191919;
+            padding: 40px 30px 45px 30px;
+        }
+
+        .dark-panel .intro-title{
+            color: #ffffff;
+            font-size: 15px;
+            margin-bottom: 8px;
+        }
+        .dark-panel .tool-text{
+            float: left;
+            background-color: #efb7a8;
+            padding: 20px 35px 20px 35px;
+            color: #333333;
+            font-size: 15px;
+        }
+    </style>
 </head>
 <body>
-	<div id="app"></div>
+	<div id="headerApp"></div>
+    <div class="dark-panel clearfix">
+        <div class="clearfix">
+            <div style="float:left;width:200px;">
+                <div class="intro-title">textbox</div>
+                <div id="textboxApp"></div>
+            </div>
+            <div style="float:left;width:200px;margin-left:40px;">
+                <div class="intro-title">combobox</div>
+                <input class="alien-combobox"></input>
+            </div>
+            <div style="float:left;width:200px;margin-left:40px;">
+                <div class="intro-title">spinner</div>
+                <input class="alien-spinner"></input>
+            </div>
+            <div style="float:left;width:200px;margin-left:40px;">
+                <div class="intro-title">datebox</div>
+                <input class="alien-datebox"></input>
+            </div>
+            <div style="float:left;width:200px;margin-left:40px;">
+                <div class="intro-title">searchbox</div>
+                <input id="this-search" class="alien-searchbox"></input>
+            </div>
+        </div>
+        <div style="margin-top:30px;padding-top:30px;border-top:1px dashed #c1dcda;">
+            <div style="float:left;width:200px;">
+                <div class="intro-title">radio</div>
+                <div id="radioApp"></div>
+            </div>
+            <div style="float:left;width:200px;">
+                <div class="intro-title">checkbox</div>
+                <input id="checkbox" class="alien-checkbox"></input>
+            </div>
+            <div style="float:left;width:200px;">
+                <div class="intro-title">toggle</div>
+                <input id="toggle-on" class="alien-toggle" style="margin-top:20px;"></input>
+                <input id="toggle-off" class="alien-toggle" style="margin-top:30px;"></input>
+            </div>
+            <div style="float:left;width:200px;">
+                <div class="intro-title">slider</div>
+                <input id="slider1" class="alien-slider"></input>
+                <input id="slider2" class="alien-slider"></input>
+            </div>
+        </div>
+    </div>
 	<script src="bundle.js"></script>
 </body>
 </html>

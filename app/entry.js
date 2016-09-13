@@ -1,9 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Hello from './components/test.jsx';
+import Radio from './components/radio.jsx';
+import Header from './components/header.jsx';
+import Textbox from './components/textbox.jsx';
 
 main();
 
 function main() {
-	ReactDOM.render( < Hello / > , document.getElementById('app'));
+	ReactDOM.render(<Radio /> , document.getElementById('radioApp'));
+	ReactDOM.render(<Header /> , document.getElementById('headerApp'));
+	ReactDOM.render(<Textbox /> , document.getElementById('textboxApp'));
 }

@@ -1,0 +1,32 @@
+@import "common.less";
+
+.alien-header{
+	margin-bottom: 5px;
+	.text{
+		color: @black-color;
+		font-weight: 500;
+		margin-right: 10px;
+		display: inline-block;
+	}
+	.decoration{
+		display: inline-block;
+		vertical-align: baseline;
+		height: 100%;
+		span{
+			border-left: 5px solid @main-color;
+			background-color: transparent;
+			margin-right: 5px;
+			display: inline-block;
+			&:nth-child(1){
+				height: 60%;
+			}
+			&:nth-child(2){
+				height: 45%;
+				margin-bottom: 1px;
+			}
+			&:nth-child(3){
+				height: 30%;
+			}
+		}
+	}
+}
