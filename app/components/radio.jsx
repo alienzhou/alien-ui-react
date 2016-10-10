@@ -2,6 +2,9 @@ import React from 'react';
 import '../less/alien-ui-radio.less';
 
 export default class Radio extends React.Component {
+	static defaultProps = {
+	    items: [{key:0,text:'均匀分布',chosen:''},{key:1,text:'正态分布',chosen:'chosen'},{key:2,text:'随机分布',chosen:''}]
+  	};
 	constructor(props) {
     	super(props);
     	this.state = {items: props.items};
@@ -29,7 +32,7 @@ export default class Radio extends React.Component {
 				</div>;
 	}
 }
-Radio.defaultProps = { items: [{key:0,text:'均匀分布',chosen:''},{key:1,text:'正态分布',chosen:'chosen'},{key:2,text:'随机分布',chosen:''}] };
+//Radio.defaultProps = { items: [{key:0,text:'均匀分布',chosen:''},{key:1,text:'正态分布',chosen:'chosen'},{key:2,text:'随机分布',chosen:''}] };
 
 class RadioItem extends React.Component {
 	render(){

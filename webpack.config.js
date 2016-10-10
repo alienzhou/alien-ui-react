@@ -18,7 +18,7 @@ var config = {
 			loader: 'jsx-loader?harmony'
 		}, {
 			test: /\.jsx|js$/,
-			loaders: ['babel?presets[]=es2015,presets[]=react']
+			loaders: ['babel?presets[]=es2015,presets[]=react,presets[]=stage-0']
 		}, {
 			test: /\.less$/,
 			loader: 'style-loader!css-loader!less-loader'
