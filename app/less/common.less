@@ -2,6 +2,9 @@
 @black-color:#333333;
 @white-color:#ffffff;
 @light-grey:#e5e5e5;
+@input-height:34px;
+@noraml-font-size:15px;
+@common-boder-radius:2px;
 
 .clearfix {
   display: block;
@@ -17,18 +20,25 @@
 }
 
 .input-common{
-  font-size: 15px;
+  font-size: noraml-font-size;
   color: @black-color;
   background-color: @light-grey;
-  line-height: 30px;
-  height: 30px;
+  line-height: @input-height;
+  height: @input-height;
   padding: 0px 10px 0px 10px;
-  border: none;
-  border-radius: 2px;
+  border: 1px solid transparent;
   box-shadow: 0px 0px 0px @main-color;
+  width: 100%;
   transition: all 0.2s;
   outline: none;
+  border-radius: @common-boder-radius;
+  &:hover{
+    background-color: lighten(@light-grey,20%);
+    box-shadow: 0px 0px 2px @main-color;
+    outline: none;
+  }
   &:focus{
+    border: 1px solid @main-color;
     background-color: lighten(@light-grey,20%);
     box-shadow: 0px 0px 2px @main-color;
     outline: none;
