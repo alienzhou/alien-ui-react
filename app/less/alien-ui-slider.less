@@ -1,0 +1,39 @@
+@import "common.less";
+
+.alien-slider{
+	@radius:8px;
+	margin-top: 30px;
+	position: relative;
+	background-color: @decorate-color;
+	height: @radius/2;
+	border-radius: @common-boder-radius;
+	.button-combo{
+		position: absolute;
+		display: block;
+		width: @radius*2;
+		height: @radius*2;
+		top: -3*@radius/4;
+		left: 0;
+		.button{
+			cursor: pointer;
+			display: block;
+			width: @radius*2;
+			height: @radius*2;
+			left: -@radius/2;
+			background-color: @main-color;
+			border-radius: @radius;
+			position: absolute;
+			transition: background-color 0.2s;
+			&:hover{
+				background-color: lighten(@main-color, 10%);
+			}
+		}
+		.text{
+			position: absolute;
+			top: -@radius*2-3;
+			left: -@radius/2;
+			color: @white-color;
+			font-size: @noraml-font-size;
+		}
+	}
+}

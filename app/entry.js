@@ -4,6 +4,7 @@ import Radio from './components/radio.jsx';
 import Header from './components/header.jsx';
 import Textbox from './components/textbox.jsx';
 import Combobox from './components/combobox.jsx';
+import Slider from './components/slider.jsx';
 
 var comboboxData = [{
 	key: 1,
@@ -39,4 +40,5 @@ function main() {
 	ReactDOM.render( <Header /> , document.getElementById('headerApp'));
 	ReactDOM.render( <Textbox /> , document.getElementById('textboxApp'));
 	ReactDOM.render( <Combobox combodata={comboboxData} /> , document.getElementById('comboboxApp'));
+	ReactDOM.render( <Slider val='38' max='200' min='10' step='3' /> , document.getElementById('sliderApp'));
 }

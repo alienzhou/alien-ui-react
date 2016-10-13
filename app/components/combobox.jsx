@@ -43,7 +43,7 @@ class ComboInput extends React.Component{
 	render(){
 		return (
 			<div className='input-area'>
-				<span className='toggle' onClick={this.props.callbackParent}></span>
+				<span className='toggle'></span>
 				<input value={this.props.inputVal} />
 			</div>
 		)
@@ -62,16 +62,17 @@ export default class Combobox extends React.Component {
 			items:props.combodata
 		}
 		document.body.addEventListener('click',(e)=>{
-			if(e.target!=this.combobox){
+			if(e.target.tagName.toLowerCase()!='span'&&e.target.tagName.toLowerCase()!='li'){
 				this.setState({
 					open:false
 				});
 			}
 		});
 	}
-	togglePanel(){
-		this.state.open=!this.state.open;
-		this.setState(this.state);
+	togglePanel(e){
+		this.setState({
+			open:!this.state.open
+		});
 	}
 	changeText(chosenKey){
 		this.state.items.forEach((v,i)=>{
@@ -89,8 +90,8 @@ export default class Combobox extends React.Component {
 			v.chosen=false;
 		});
 		return (
-			<div ref={(ref)=>{this.combobox=ref}} className={className}>
-				<ComboInput callbackParent={()=>{this.togglePanel()}} inputVal={chosenVal[0].text} />
+			<div ref={(ref)=>{this.combobox=ref}} className={className} onClick={(e)=>{this.togglePanel(e)}} >
+				<ComboInput inputVal={chosenVal[0].text} />
 				<ComboList items={this.state.items} callbackSelect={(chosenKey)=>this.changeText(chosenKey)} />
 			</div>
 		)
