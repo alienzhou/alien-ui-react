@@ -45,42 +45,54 @@
 	}
 	.combobox-panel{
 		position: absolute;
-		filter:alpha(opacity=0); /*IE滤镜，透明度0%*/
-    	-moz-opacity:0; /*Firefox私有，透明度0%*/
-		opacity:0;/*其他，透明度0%*/
-		z-index: -1;
 		width: 100%;
 		margin: 40px 0px 0px 0px;
-		padding: 5px 0px 5px 0px;
-		background-color: #f67b5a;
-		border-radius: 3px;
+		padding: 0;
+		filter:alpha(opacity=0); /*IE滤镜，透明度0%*/
+		-moz-opacity:0; /*Firefox私有，透明度0%*/
+		opacity:0;/*其他，透明度0%*/
+		z-index: -1;
 		transition: all 0.2s ease-out 0s;
-		&:after{
+		overflow: visible;
+		&:before{
 			content: '';
 			position: absolute;
-			top: -6px;
-			right: 8px;
+			top: -@input-height/4;
+			right: @input-height/4;
 			width: 0;
 			height: 0;
-			border-left: 12px solid transparent;
-			border-right: 12px solid transparent;
-			border-bottom: 12px solid #f67b5a;
+			border-left: @input-height/4 solid transparent;
+			border-right: @input-height/4 solid transparent;
+			border-bottom: @input-height/4 solid #f67b5a;
 		}
-		li{
-			font-size: @noraml-font-size;
-			cursor: pointer;
-			padding: 8px 15px 8px 15px;
-			color: #ffffff;
-			list-style-type : none;
-			transition: all 0.2s;
-			&:hover{
+		ul{
+			position: absolute;
+			top: 0;
+			margin: 0;
+			width: 100%;
+			padding: 5px 0px 5px 0px;
+			background-color: #f67b5a;
+			border-radius: 3px;
+			max-height: 300px;
+			min-height: 40px;
+			overflow-y: auto;
+			li{
+				font-size: @noraml-font-size;
+				cursor: pointer;
+				padding: 8px 15px 8px 15px;
+				color: #ffffff;
+				list-style-type : none;
+				transition: all 0.2s;
+				&:hover{
+					padding-left: 25px;
+					background-color: #ec613b;
+				}
+			}
+			.active{
 				padding-left: 25px;
 				background-color: #ec613b;
+				text-decoration: underline;
 			}
-		}
-		.active{
-			padding-left: 25px;
-			background-color: #ec613b;
 		}
 	}
 }
