@@ -1,5 +1,5 @@
 import React from 'React';
-import '../less/alien-ui-textbox.less';
+import '../less/textbox.less';
 
 export default class Textbox extends React.Component {
 	constructor(props) {

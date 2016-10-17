@@ -1,5 +1,5 @@
 import React from 'react';
-import '../less/alien-ui-slider.less';
+import '../less/slider.less';
 
 class Button extends React.Component{
 	constructor(props){

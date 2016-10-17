@@ -1,45 +1,62 @@
 import React from 'react';
-import '../less/alien-ui-radio.less';
+import '../less/radio.less';
 
 export default class Radio extends React.Component {
-	static defaultProps = {
-	    items: [{key:0,text:'均匀分布',chosen:''},{key:1,text:'正态分布',chosen:'chosen'},{key:2,text:'随机分布',chosen:''}]
-  	};
+  	_preProcess(props){
+  		var chosen;
+		// 初始化key值
+		props.items.forEach((v,i)=>{
+			v.key=i;
+			if(!chosen && v.chosen){
+				chosen=v;
+			}
+		});
+
+		return {
+			props:props,
+			chosen:chosen
+		};
+	}
 	constructor(props) {
     	super(props);
-    	this.state = {items: props.items};
+    	var result=this._preProcess(props);
+    	this.props=result.props;
+    	this.state = {chosen: result.chosen};
   	}
-	handleItemClick(item,index){
-		var states = this.state;
-		states.items =this.state.items.map((val,i)=>{
-			val.chosen = i == index ? 'chosen' : '';
-			return val;
-		});
-		this.setState(states);
+	handleItemClick(item){
+		this.setState({chosen:item});
     }
 	render() {
-		return 	<div>
-					<ul className="alien-radio">
-					{
-						this.state.items.map((item,index)=>{
-							return (
-								<RadioItem onClick={this.handleItemClick.bind(this,item,index)} 
-									key={item.key} chosen={item.chosen} text={item.text} />
-								)
-						},this)
-					}
-					</ul>
-				</div>;
+		return (
+			<div>
+				<ul className="alien-radio">
+				{
+					this.props.items.map((item)=>{
+						let chosen='';
+						if(item.key==this.state.chosen.key){
+							chosen='chosen';
+						}
+						return (
+							<RadioItem handler={this.handleItemClick.bind(this,item)} 
+								key={item.key} chosen={chosen} item={item} />
+						)
+					},this)
+				}
+				</ul>
+			</div>
+		)
 	}
 }
 
 class RadioItem extends React.Component {
 	render(){
-		return 	<li className="clearfix" onClick={this.props.onClick}>
-					<span className="button">
-						<span className={this.props.chosen}></span>
-					</span>
-					<span className="text">{this.props.text}</span>
-				</li>
+		return (
+			<li className="clearfix" onClick={this.props.handler}>
+				<span className="button">
+					<span className={this.props.chosen}></span>
+				</span>
+				<span className="text">{this.props.item.text}</span>
+			</li>
+		)
 	}
 }

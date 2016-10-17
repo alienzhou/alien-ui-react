@@ -1,5 +1,5 @@
 import React from 'react';
-import '../less/alien-ui-header.less';
+import '../less/header.less';
 
 export default class Header extends React.Component {
 	constructor(props) {

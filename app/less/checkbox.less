@@ -1,0 +1,52 @@
+@import "common.less";
+
+.alien-checkbox{
+	margin: 0;
+	padding: 0;
+	list-style : none;
+	li{
+		margin-bottom: @noraml-font-size*2/3;
+		.text{
+			cursor: pointer;
+			display: inline-block;
+			padding-left: @noraml-font-size/2;
+			float: left;
+			font-size: @noraml-font-size;
+			color: @white-color;
+			vertical-align: middle;
+			transition: color 0.1s;
+			&:hover{
+				color: @main-color;
+			}
+		}
+		.button{
+			cursor: pointer;
+			float:left;
+			position: relative;
+			width: @noraml-font-size;
+			height: @noraml-font-size;
+			margin-top: 3px;
+			border: 1px solid @white-color;
+			&:hover + .text{
+				color: @main-color;
+			}
+			span{
+				@padding: 2px;
+				position: absolute;
+				width: @noraml-font-size - @padding*2 - 2px;
+				height: @noraml-font-size - @padding*2 - 2px;
+				border: none;
+				top: @padding;
+				left: @padding;
+				background-color: @main-color;
+				filter:alpha(opacity=0); /*IE滤镜，透明度0%*/
+				opacity:0;/*其他，透明度0%*/
+				transition: all 0.1s ease-in-out 0s;
+			}
+			.chosen{
+				filter:alpha(opacity=100); /*IE滤镜，透明度100%*/
+				opacity:1;/*其他，透明度100%*/
+			}
+		}
+	}
+}

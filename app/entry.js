@@ -5,6 +5,7 @@ import Header from './components/header.jsx';
 import Textbox from './components/textbox.jsx';
 import Combobox from './components/combobox.jsx';
 import Slider from './components/slider.jsx';
+import Checkbox from './components/checkbox.jsx';
 
 var comboboxData = [{
 	text: '与我常在',
@@ -52,13 +53,46 @@ var comboboxData = [{
 	chosen: false
 }];
 
+var radioData = [{
+	text: '均匀分布',
+	val: '1',
+	chosen: false
+}, {
+	text: '正态分布',
+	val: '2',
+	chosen: true
+}, {
+	text: '随机分布',
+	val: '3',
+	chosen: false
+}];
+
+var checkboxData = [{
+	text:'Jason Mraz',
+	val:1,
+	chosen:false
+}, {
+	text:'张国荣',
+	val:2,
+	chosen:true
+}, {
+	text:'谢安琪',
+	val:3,
+	chosen:false
+}, {
+	text:'陈奕迅',
+	val:4,
+	chosen:true
+}];
+
 main();
 
 function main() {
-	ReactDOM.render( <Radio /> , document.getElementById('radioApp'));
+	ReactDOM.render( <Radio items={radioData} /> , document.getElementById('radioApp'));
 	ReactDOM.render( <Header /> , document.getElementById('headerApp'));
 	ReactDOM.render( <Textbox /> , document.getElementById('textboxApp'));
 	ReactDOM.render( <Combobox items={comboboxData} multi='true' /> , document.getElementById('comboboxApp'));
 	ReactDOM.render( <Slider val='76' max='200' min='10' step='3' /> , document.getElementById('sliderApp'));
 	ReactDOM.render( <Slider val='700' max='1000' min='-500' step='100' /> , document.getElementById('sliderApp2'));
+	ReactDOM.render( <Checkbox items={checkboxData} /> , document.getElementById('checkboxApp'));
 }

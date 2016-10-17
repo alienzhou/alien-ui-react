@@ -1,5 +1,5 @@
 import React from 'react';
-import '../less/alien-ui-combobox.less';
+import '../less/combobox.less';
 import PubSub from 'pubsub-js';
 
 class ComboItem extends React.Component{
@@ -116,7 +116,7 @@ export default class Combobox extends React.Component {
 
 	constructor(props){
 		super(props);
-		this.props=this._preProcess(props)
+		this.props=this._preProcess(props);
 		// 获取选中的key值
 		var keys=this._getKeys(props.items);
 		// 如果设置为单选，则只取第一个选中的key值
