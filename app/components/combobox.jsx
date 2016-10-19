@@ -197,6 +197,9 @@ export default class Combobox extends React.Component {
 	 * @param  {[object]} e [事件对象]
 	 */
 	changeText(e){
+		if(this.props.editable=='false'){
+			return;
+		}
 		var text=e.target.value,
 			list=[];
 		this.props.items.forEach((v,i)=>{

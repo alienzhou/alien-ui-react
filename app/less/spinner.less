@@ -1,0 +1,65 @@
+@import "common.less";
+
+.alien-spinner{
+	margin: 0;
+	padding: 0;
+	position: relative;
+	input{
+		.input-common;
+		padding-right: @input-height+5;
+		&:hover{
+			background-color: lighten(@light-grey,20%);
+			box-shadow: 0px 0px 2px @main-color;
+			outline: none;
+		}
+	}
+	.button{
+		float: right;
+		position: absolute;
+		right: 0px;
+		top: 0px;
+		width: 30px;
+		height: 40px;
+		background-color: transparent;
+		&:hover + input{
+			background-color: lighten(@light-grey,20%);
+			box-shadow: 0px 0px 2px @main-color;
+			outline: none;
+		}
+		span{
+			float: right;
+			position: relative;
+			right: 0;
+			display: block;
+			cursor: pointer;
+			height: @input-height/2;
+			width: @input-height;
+			background-color: darken(@main-color, 5%);
+			user-select:none;
+			transition: all 0.2s;
+			&:hover{
+				background-color: lighten(@main-color, 5%);
+			}
+			&:after{
+				position: relative;
+				content: '';
+				width: 0;
+				height: 0;
+				border-left: @input-height/4 solid transparent;
+				border-right: @input-height/4 solid transparent;
+			}
+		}
+		.up:after{
+			border-bottom: @input-height/4 solid #ffffff;
+			top: -@input-height/4-5;
+			left: @input-height/4;
+			border-radius: 0 @common-boder-radius 0 0;
+		}
+		.down:after{
+			border-top: @input-height/4 solid #ffffff;
+			top: @input-height/4+3;
+			left: @input-height/4;
+			border-radius: 0 0 @common-boder-radius 0;
+		}
+	}
+}

@@ -6,6 +6,8 @@ import Textbox from './components/textbox.jsx';
 import Combobox from './components/combobox.jsx';
 import Slider from './components/slider.jsx';
 import Checkbox from './components/checkbox.jsx';
+import Spinner from './components/spinner.jsx';
+import Toggle from './components/toggle.jsx';
 
 var comboboxData = [{
 	text: '与我常在',
@@ -90,9 +92,12 @@ main();
 function main() {
 	ReactDOM.render( <Radio items={radioData} /> , document.getElementById('radioApp'));
 	ReactDOM.render( <Header /> , document.getElementById('headerApp'));
-	ReactDOM.render( <Textbox /> , document.getElementById('textboxApp'));
-	ReactDOM.render( <Combobox items={comboboxData} multi='true' /> , document.getElementById('comboboxApp'));
+	ReactDOM.render( <Textbox placeholder='随便输点吧' val='一尘不染' editable='true' /> , document.getElementById('textboxApp'));
+	ReactDOM.render( <Combobox items={comboboxData} multi='true' editable='false' /> , document.getElementById('comboboxApp'));
 	ReactDOM.render( <Slider val='76' max='200' min='10' step='3' /> , document.getElementById('sliderApp'));
 	ReactDOM.render( <Slider val='700' max='1000' min='-500' step='100' /> , document.getElementById('sliderApp2'));
 	ReactDOM.render( <Checkbox items={checkboxData} /> , document.getElementById('checkboxApp'));
+	ReactDOM.render( <Spinner val='26' max='200' min='10' step='3' editable='false' /> , document.getElementById('spinnerApp'));
+	ReactDOM.render( <Toggle status='on' /> , document.getElementById('toggleApp1'));
+	ReactDOM.render( <Toggle status='off' /> , document.getElementById('toggleApp2'));
 }
