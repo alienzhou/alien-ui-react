@@ -143,7 +143,7 @@ export default class Combobox extends React.Component {
 	 * [togglePanel 切换面板状态]
 	 * @param  {[object]} e [事件对象]
 	 */
-	togglePanel(e){
+	togglePanel=(e)=>{
 		// 对于多选控件，点击li标签不需要收起面板
 		if(this.props.multi=='true' && e.target.tagName.toLowerCase()=='li'){
 			return;
@@ -178,7 +178,7 @@ export default class Combobox extends React.Component {
 	 * [chooseItem 更改所选项目]
 	 * @param  {[string]} chosenKey [所选item的key值]
 	 */
-	chooseItem(chosenKey){
+	chooseItem=(chosenKey)=>{
 		this.state.showList.forEach((v,i)=>{
 			if(this.props.multi=='false'){
 				v.chosen=false;
@@ -196,7 +196,7 @@ export default class Combobox extends React.Component {
 	 * [changeText 更改input内容]
 	 * @param  {[object]} e [事件对象]
 	 */
-	changeText(e){
+	changeText=(e)=>{
 		if(this.props.editable=='false'){
 			return;
 		}
@@ -218,9 +218,9 @@ export default class Combobox extends React.Component {
 	render(){
 		var className=this.state.open?'alien-combobox open':'alien-combobox';
 		return (
-			<div ref={(ref)=>{this.combobox=ref}} className={className} onClick={(e)=>{this.togglePanel(e)}} >
-				<ComboInput inputText={this.state.inputText} callbackText={(e)=>this.changeText(e)} />
-				<ComboList items={this.state.showList} callbackSelect={(chosenKey)=>this.chooseItem(chosenKey)} />
+			<div ref={(ref)=>{this.combobox=ref}} className={className} onClick={this.togglePanel} >
+				<ComboInput inputText={this.state.inputText} callbackText={this.changeText} />
+				<ComboList items={this.state.showList} callbackSelect={this.chooseItem} />
 			</div>
 		)
 	}

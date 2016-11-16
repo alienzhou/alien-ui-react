@@ -57,7 +57,7 @@ export default class Toggle extends React.Component{
 			init:false
 		});
 	}
-	bindMousedown(){
+	bindMousedown=()=>{
 		document.onselectstart=function(){
 			return false;
 		}
@@ -77,7 +77,7 @@ export default class Toggle extends React.Component{
 		}
 		return (
 			<div ref={(ref)=>{this.bar=ref}} className='alien-slider'>
-				<Button percent={this.state.percent} val={val} callbackBind={()=>this.bindMousedown()} />
+				<Button percent={this.state.percent} val={val} callbackBind={this.bindMousedown} />
 			</div>
 		)
 	}

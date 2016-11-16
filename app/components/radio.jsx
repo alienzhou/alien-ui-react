@@ -1,6 +1,25 @@
 import React from 'react';
 import '../less/radio.less';
 
+class RadioItem extends React.Component {
+	constructor(props){
+		super(props);
+	}
+	handleClick=()=>{
+		this.props.callbackParent(this.props.item);
+    }
+	render(){
+		return (
+			<li className="clearfix" onClick={this.handleClick}>
+				<span className="button">
+					<span className={this.props.chosen}></span>
+				</span>
+				<span className="text">{this.props.item.text}</span>
+			</li>
+		)
+	}
+}
+
 export default class Radio extends React.Component {
   	_preProcess(props){
   		var chosen;
@@ -23,7 +42,7 @@ export default class Radio extends React.Component {
     	this.props=result.props;
     	this.state = {chosen: result.chosen};
   	}
-	handleItemClick(item){
+	handleItemClick=(item)=>{
 		this.setState({chosen:item});
     }
 	render() {
@@ -37,26 +56,13 @@ export default class Radio extends React.Component {
 							chosen='chosen';
 						}
 						return (
-							<RadioItem handler={this.handleItemClick.bind(this,item)} 
+							<RadioItem callbackParent={this.handleItemClick} 
 								key={item.key} chosen={chosen} item={item} />
 						)
 					},this)
 				}
 				</ul>
 			</div>
-		)
-	}
-}
-
-class RadioItem extends React.Component {
-	render(){
-		return (
-			<li className="clearfix" onClick={this.props.handler}>
-				<span className="button">
-					<span className={this.props.chosen}></span>
-				</span>
-				<span className="text">{this.props.item.text}</span>
-			</li>
 		)
 	}
 }

@@ -13,6 +13,6 @@ export default class Textbox extends React.Component {
 		this.setState({val:e.target.value});
 	}
 	render(){
-		return <input className="alien-textbox" placeholder={this.props.placeholder} value={this.state.val} onChange={(e)=>{this.changeText(e)}} />
+		return <input className="alien-textbox" placeholder={this.props.placeholder} value={this.state.val} onChange={this.changeText} />
 	}
 }

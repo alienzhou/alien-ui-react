@@ -5,9 +5,12 @@ class CheckItem extends React.Component{
 	constructor(props){
 		super(props);
 	}
+	handleClick=()=>{
+		this.props.callbackParent(this.props.item);
+    }
 	render(){
 		return (
-			<li className="clearfix" onClick={this.props.handler}>
+			<li className="clearfix" onClick={this.handleClick}>
 				<span className="button">
 					<span className={this.props.chosen}></span>
 					</span>
@@ -52,7 +55,7 @@ export default class Checkbox extends React.Component{
 	 * [handleItemClick 处理点击事件]
 	 * @param  {[object]} item [点击项目的数据对象]
 	 */
-	handleItemClick(item){
+	handleItemClick=(item)=>{
 		var index=-1,
 			chosenItems=this.state.chosenList;
 		// 比对当前选中状态中是否存在点击的项目
@@ -84,8 +87,11 @@ export default class Checkbox extends React.Component{
 							chosen='chosen';
 						}
 						return (
-							<CheckItem handler={this.handleItemClick.bind(this,item)} 
-								key={item.key} chosen={chosen} item={item} />
+							<CheckItem 
+								callbackParent={this.handleItemClick} 
+								key={item.key}
+								chosen={chosen}
+								item={item} />
 						)
 					},this)
 				}

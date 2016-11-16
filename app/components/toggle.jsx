@@ -12,17 +12,16 @@ export default class Toggle extends React.Component{
 		}
 		this.state={status:status};
 	}
-	toggleButton(){
+	toggleButton=()=>{
 		var status=this.state.status=='on'?'off':'on';
 		this.setState({status:status});
-		console.log(this.state)
 	}
 	render(){
 		var className='bar toggle-'+this.state.status;
 		return (
 			<div className='alien-toggle' >
 				<div className={className} >
-					<span className='button' onClick={()=>this.toggleButton()} ></span>
+					<span className='button' onClick={this.toggleButton} ></span>
 				</div>
 			</div>
 		)
